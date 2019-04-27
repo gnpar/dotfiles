@@ -32,8 +32,8 @@ There's two ways to get a single config file:
 
 1. Clone the bare repo and setup the alias as detailed above, then do:
 
-    config checkout -- <file>
+      config checkout -- <file>
 
 2. Find the URL to the raw file on github and download it with wget or curl:
 
-    wget https://raw.githubusercontent.com/gnpar/dotfiles/master/.vimrc
+      wget https://raw.githubusercontent.com/gnpar/dotfiles/master/.vimrc
