@@ -144,7 +144,7 @@ title() {
 case "$TERM" in
 screen*)
     SCREENTITLE='\['$(screen_title '\w')'\\]'
-    trap 'title ${BASH_COMMAND/ */}' DEBUG
+    trap 'title $(basename ${BASH_COMMAND/ */})' DEBUG
     ;;
 *)  ;;
 esac
