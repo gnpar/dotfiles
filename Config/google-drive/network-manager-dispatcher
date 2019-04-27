@@ -1,0 +1,18 @@
+#!/bin/sh -e
+# Start or stop google drive service on connectivity change
+
+if [ "$2" != "connectivity-change" ]; then
+    exit 0;
+fi
+
+case "$CONNECTIVITY_STATE" in
+    LIMITED|FULL)
+        /bin/systemctl start google-drive;
+        ;;
+    NONE|PORTAL)
+        /bin/systemctl stop google-drive;
+        ;;
+    *)
+        echo "Unexpected state $CONNECTIVITY_STATE" >&2
+        ;;
+esac

@@ -1,0 +1,18 @@
+[Unit]
+Description=Google Drive
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=notify
+User=USER
+Environment=RCLONE_CONFIG=HOME/.config/rclone/rclone.conf
+Environment=MOUNT_PATH=HOME/Drive
+Environment=MOUNT_CACHE_DIR=HOME/.drive
+Environment=MOUNT_NAME=drive:
+ExecStart=/usr/bin/rclone --config ${RCLONE_CONFIG} mount --low-level-retries 50 --vfs-cache-mode full --cache-dir ${MOUNT_CACHE_DIR} ${MOUNT_NAME} ${MOUNT_PATH}
+ExecStopPost=-/bin/fusermount -uz ${MOUNT_PATH}
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
