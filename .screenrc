@@ -3,6 +3,6 @@ startup_message off
 escape ^Tt
 
 hardstatus alwayslastline
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%= %{g}][%{G}Load: %l%{g}][%{B}%Y-%m-%d %{W}%c%{g}]'
+hardstatus string "%{= kG}[ %{G}%H %{g}][%L=%=%{=kw}%-Lw%45L>%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%+Lw%=%-045=%{g}]%L=[%{G}Load: %l%{g}][%{B}%Y-%m-%d %{W}%c%{g}]"
 
 altscreen on
