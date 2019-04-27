@@ -24,7 +24,7 @@ And don't show untracked files:
 
 The same as using git, but use config instead. So `config status/add/commit/push` as necessary.
 
-To see what files are in repo: `git ls-files`
+To see what files are in repo: `config ls-files`
 
 # Pick and choose
 
