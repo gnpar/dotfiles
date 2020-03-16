@@ -64,13 +64,21 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 let python_highlight_all=1
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 2
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+let g:syntastic_loc_list_height = 2
+" Force python2.7
+let g:syntastic_python_flake8_exec = 'python2.7'
+let g:syntastic_python_flake8_args = ['-m', 'flake8', '--ignore=E731,E126,E127,E128', '--max-line-length=110']
 
 " C Programming
 au BufRead,BufNewFile *.h,*.c setlocal cindent textwidth=120 colorcolumn=120 formatoptions+=t
 
 " yml (ansible) and html
 au BufRead,BufNewFile *.yml,*.yaml,*.html setlocal tabstop=2 shiftwidth=2
+
+" Sane auto-completion
+set wildmode=longest,list,full
+set wildmenu
