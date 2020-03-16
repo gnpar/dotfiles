@@ -8,6 +8,13 @@ case $- in
       *) return;;
 esac
 
+# Color definitions
+color_red='\[$(tput setaf 1)\]'
+color_green='\[$(tput setaf 2)\]'
+color_yellow='\[$(tput setaf 3)\]'
+color_blue='\[$(tput setaf 4)\]'
+color_reset='\[$(tput sgr0)\]'
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -40,10 +47,8 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+# Color prompt toggle. Set to no to disable.
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -85,7 +90,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -96,11 +101,7 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
+# Most customizations should go in the following file
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -152,3 +153,37 @@ esac
 PS1="${SCREENTITLE}${PS1}"
 
 PROMPT_DIRTRIM=3
+
+export PGUSER=postgres
+
+
+hg_revision() {
+    # This function returns a prompt prefix for mercurial repositories, similar to __git_ps1
+
+    # It does the following but more efficiently, to avoid slowing down the shell prompt.
+    # if hg id > /dev/null 2>&1; then
+    #     echo -n "[$(hg id -b):$(hg id -t)] "
+    # fi
+    # 
+
+    while [ "$PWD" != "/" ]; do
+        if branch=$(cat .hg/branch 2>/dev/null); then
+            break
+        fi
+        cd ..
+    done
+
+    if [ -z "$branch" ]; then
+        return
+    fi
+
+    if ! [ -f ".hg/tag" ] || [ ".hg/branch" -nt ".hg/tag" ]; then
+        tag=$(hg id -t < /dev/null 2> /dev/null)
+        echo $tag > .hg/tag
+    else
+        tag=$(cat .hg/tag 2> /dev/null)
+    fi
+
+    echo -n "[$branch:$tag] "
+}
+PS1="$color_yellow\$(hg_revision)\$(__git_ps1 '(%s) ')$color_reset$PS1"
