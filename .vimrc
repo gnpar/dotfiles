@@ -62,6 +62,11 @@ endif
 
 syntax on
 
+" CTags generation and navigation
+set tags=tags
+autocmd BufWritePost *.py silent! !ctags -R --python-kinds=-i --languages=python 2> /dev/null &
+nnoremap <C-]> <C-w><C-]><C-w>T
+
 " Folding
 set foldmethod=indent
 set foldlevel=99
