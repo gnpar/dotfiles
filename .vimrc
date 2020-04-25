@@ -19,6 +19,10 @@ Plugin 'vim-scripts/indentpython.vim'
 " Syntax check on each save
 Plugin 'vim-syntastic/syntastic'
 
+" Python autocomplete
+" Requires `jedi` to be installed: cd ~/.vim/bundle/jedi-vim/ && git submodule update --init --recursive
+Plugin 'davidhalter/jedi-vim'
+
 " PEP-8 checking
 " Requires flake8:
 "     sudo apt-get install flake8
@@ -62,11 +66,6 @@ endif
 
 syntax on
 
-" CTags generation and navigation
-set tags=tags
-autocmd BufWritePost *.py silent! !ctags -R --python-kinds=-i --languages=python 2> /dev/null &
-nnoremap <C-]> <C-w><C-]><C-w>T
-
 " Folding
 set foldmethod=indent
 set foldlevel=99
@@ -91,7 +90,6 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 2
-"#let g:syntastic_python_checkers=['flake8']
 
 " By default use system python (not current virtualenv)
 let g:syntastic_python_flake8_exec = '/usr/bin/python'
@@ -108,6 +106,10 @@ function Py3()
   let g:syntastic_python_flake8_exec = '/usr/bin/python3'
   SyntasticCheck
 endfunction
+
+autocmd FileType python setlocal completeopt-=preview
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#popup_on_dot = 0
 
 " C Programming
 au BufRead,BufNewFile *.h,*.c setlocal cindent textwidth=120 colorcolumn=120 formatoptions+=t
