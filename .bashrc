@@ -187,3 +187,10 @@ hg_revision() {
     echo -n "[$branch:$tag] "
 }
 PS1="$color_yellow\$(hg_revision)\$(__git_ps1 '(%s) ')$color_reset$PS1"
+
+# Command line fuzzy finder, to make life easier
+# https://github.com/junegunn/fzf#using-git
+# Probably want to `apt-get install highlight tree` as well
+export FZF_CTRL_T_OPTS="--preview '[ -f {} -o -d {} ] && (highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_COMPLETION_OPTS="$FZF_CTRL_T_OPTS --preview-window hidden --bind '?:toggle-preview'"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

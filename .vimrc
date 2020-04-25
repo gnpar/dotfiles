@@ -30,6 +30,14 @@ Plugin 'vim-airline/vim-airline'
 " Useful bracket mappings (e.g.: ]l for next syntax error)
 Plugin 'tpope/vim-unimpaired'
 
+" Ack for searching. Requires silversearcher-ag (or ack) to be installed
+Plugin 'mileszs/ack.vim'
+
+" Fzf. Requires fzf to be installed. The rtp is set for git install:
+"   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+set rtp+=~/.fzf
+Plugin 'junegunn/fzf.vim'
+
 " ##### END PLUGINS   #####
 call vundle#end()
 
@@ -40,6 +48,15 @@ set tabstop=4 shiftwidth=4 expandtab
 set mouse=
 
 set encoding=utf-8
+
+" Mappings
+nnoremap gf <C-W>gf
+vnoremap gf <C-W>gf
+
+" Ack config
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " #### PROGRAMMING SETTINGS ####
 
@@ -69,9 +86,23 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 2
-" Force python2.7
-let g:syntastic_python_flake8_exec = 'python2.7'
+"#let g:syntastic_python_checkers=['flake8']
+
+" By default use system python (not current virtualenv)
+let g:syntastic_python_flake8_exec = '/usr/bin/python'
 let g:syntastic_python_flake8_args = ['-m', 'flake8', '--ignore=E731,E126,E127,E128', '--max-line-length=110']
+
+function Py2()
+  let g:syntastic_python_python_exec = 'python2'
+  let g:syntastic_python_flake8_exec = '/usr/bin/python2'
+  SyntasticCheck
+endfunction
+
+function Py3()
+  let g:syntastic_python_python_exec = 'python3'
+  let g:syntastic_python_flake8_exec = '/usr/bin/python3'
+  SyntasticCheck
+endfunction
 
 " C Programming
 au BufRead,BufNewFile *.h,*.c setlocal cindent textwidth=120 colorcolumn=120 formatoptions+=t
