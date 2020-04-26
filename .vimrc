@@ -34,6 +34,9 @@ Plugin 'vim-airline/vim-airline'
 " Useful bracket mappings (e.g.: ]l for next syntax error)
 Plugin 'tpope/vim-unimpaired'
 
+" Fugitive (Git)
+Plugin 'tpope/vim-fugitive'
+
 " Ack for searching. Requires silversearcher-ag (or ack) to be installed
 Plugin 'mileszs/ack.vim'
 
