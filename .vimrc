@@ -86,6 +86,7 @@ au BufNewFile,BufRead *.py
     \ set expandtab | 
     \ set autoindent |
     \ set fileformat=unix
+autocmd FileType python setlocal indentkeys-=<:>
 let python_highlight_all=1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 2
@@ -113,6 +114,8 @@ endfunction
 autocmd FileType python setlocal completeopt-=preview
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#popup_on_dot = 0
+set noshowmode  " call signatures on vim command line don't work with showmode on
+let g:jedi#show_call_signatures = 2
 
 " C Programming
 au BufRead,BufNewFile *.h,*.c setlocal cindent textwidth=120 colorcolumn=120 formatoptions+=t
