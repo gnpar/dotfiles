@@ -123,6 +123,11 @@ au BufRead,BufNewFile *.h,*.c setlocal cindent textwidth=120 colorcolumn=120 for
 " yml (ansible) and html
 au BufRead,BufNewFile *.yml,*.yaml,*.html setlocal tabstop=2 shiftwidth=2
 
+" javascript
+au BufRead,BufNewFile *.js,*.json setlocal tabstop=2 shiftwidth=2
+let g:syntastic_javascript_checkers = ["standard"]
+let g:syntastic_javascript_standard_exec = "semistandard"
+ 
 " Sane auto-completion
 set wildmode=longest,list,full
 set wildmenu
