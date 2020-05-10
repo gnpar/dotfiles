@@ -194,3 +194,7 @@ PS1="$color_yellow\$(hg_revision)\$(__git_ps1 '(%s) ')$color_reset$PS1"
 export FZF_CTRL_T_OPTS="--preview '[ -f {} -o -d {} ] && (highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export FZF_COMPLETION_OPTS="$FZF_CTRL_T_OPTS --preview-window hidden --bind '?:toggle-preview'"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
+# NPM packages
+export PATH="$PATH:$HOME/.npm_packages/bin"
