@@ -97,7 +97,7 @@ let g:syntastic_loc_list_height = 2
 
 " By default use system python (not current virtualenv)
 let g:syntastic_python_flake8_exec = '/usr/bin/python'
-let g:syntastic_python_flake8_args = ['-m', 'flake8', '--ignore=E731,E126,E127,E128', '--max-line-length=110']
+let g:syntastic_python_flake8_args = ['-m', 'flake8', '--ignore=E731,E126,E127,E128', '--max-line-length=120']
 
 function Py2()
   let g:syntastic_python_python_exec = 'python2'
