@@ -26,6 +26,8 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+PROMPT_COMMAND='history -a;history -n'
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -195,6 +197,8 @@ export FZF_CTRL_T_OPTS="--preview '[ -f {} -o -d {} ] && (highlight -O ansi -l {
 export FZF_COMPLETION_OPTS="$FZF_CTRL_T_OPTS --preview-window hidden --bind '?:toggle-preview'"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# HOME bin (pip, etc)
+export PATH="$PATH:$HOME/.local/bin"
 
 # NPM packages
 export PATH="$PATH:$HOME/.npm_packages/bin"
