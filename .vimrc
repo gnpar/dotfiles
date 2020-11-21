@@ -28,6 +28,9 @@ Plugin 'davidhalter/jedi-vim'
 "     sudo apt-get install flake8
 Plugin 'nvie/vim-flake8'
 
+" REPL for python and others
+Plugin 'sillybun/vim-repl'
+
 " Pretty statusline
 Plugin 'vim-airline/vim-airline'
 
@@ -116,6 +119,13 @@ let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#popup_on_dot = 0
 set noshowmode  " call signatures on vim command line don't work with showmode on
 let g:jedi#show_call_signatures = 2
+
+let g:repl_program = {
+			\	'python': ['ipython'],
+			\	'default': ['bash']
+			\	}
+let g:repl_position = 3
+nnoremap <leader>i :REPLToggle<Cr>
 
 " C Programming
 au BufRead,BufNewFile *.h,*.c setlocal cindent textwidth=120 colorcolumn=120 formatoptions+=t
