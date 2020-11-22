@@ -48,6 +48,9 @@ Plugin 'mileszs/ack.vim'
 set rtp+=~/.fzf
 Plugin 'junegunn/fzf.vim'
 
+" Conque-shell
+Plugin 'wkentaro/conque.vim'
+
 " ##### END PLUGINS   #####
 call vundle#end()
 
@@ -126,6 +129,9 @@ let g:repl_program = {
 			\	}
 let g:repl_position = 3
 nnoremap <leader>i :REPLToggle<Cr>
+tnoremap <C-n> <C-w>N
+tnoremap <ScrollWheelUp> <C-w>Nk
+tnoremap <ScrollWheelDown> <C-w>Nj
 
 " C Programming
 au BufRead,BufNewFile *.h,*.c setlocal cindent textwidth=120 colorcolumn=120 formatoptions+=t
@@ -137,6 +143,11 @@ au BufRead,BufNewFile *.yml,*.yaml,*.html setlocal tabstop=2 shiftwidth=2
 au BufRead,BufNewFile *.js,*.json setlocal tabstop=2 shiftwidth=2
 let g:syntastic_javascript_checkers = ["standard"]
 let g:syntastic_javascript_standard_exec = "semistandard"
+
+" shell
+nnoremap <leader>b :ConqueTermVSplit bash<Cr>
+nnoremap <leader>hb :ConqueTermSplit bash<Cr>
+
  
 " Sane auto-completion
 set wildmode=longest,list,full
