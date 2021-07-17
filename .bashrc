@@ -123,6 +123,14 @@ function speedFibertel() {
     wget -O/dev/null http://sftp.fibertel.com.ar/services/file-1GB.img
 }
 
+
+update_smart_db() {
+    wget -O /tmp/drivedb.h https://raw.githubusercontent.com/smartmontools/smartmontools/master/smartmontools/drivedb.h && \
+        sudo mv /var/lib/smartmontools/drivedb/drivedb.h{,.bk} && \
+        sudo mv /tmp/drivedb.h /var/lib/smartmontools/drivedb
+
+}
+
 screen_title() {
     echo -ne '\ek'$*'\e\\'
 }
