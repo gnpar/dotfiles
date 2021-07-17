@@ -210,3 +210,7 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # NPM packages
 export PATH="$PATH:$HOME/.npm_packages/bin"
+
+
+# poetry autocompletion
+[ -f ~/.poetry.bash ] && source ~/.poetry.bash
