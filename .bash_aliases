@@ -1,16 +1,16 @@
 alias config='/usr/bin/git --git-dir=/home/gabriel/.dotfiles/ --work-tree=/home/gabriel'
 alias gcc89="gcc -Wall -ansi -pedantic"
-
+alias venv="source .venv/bin/activate || source venv/bin/activate || echo 'no venv in .venv nor venv'"
+alias ci=code
+alias .env="set -a; source .env; set +a"
 alias :q=exit  # Not sure whether to be proud or ashamed ¬‿¬
-
-repo() {
-    [ -n "$1" ] && [ -d ~/repo/"$1" ] && cd ~/repo/"$1" && return
-    [ -z "$1" ] && cd ~/src && return
-    echo "No existe ~/repo/$1" >&2
-    return 1
-}
-complete -W "$(ls ~/repo)" repo
-
+alias hh="npx hardhat"
+alias _A='cast to-fixed-point 6'
+alias _W='cast to-fixed-point 18'
+alias pol='inv resolve -c polygon'
+alias sep='inv resolve -c sepolia'
+alias castpol='cast call --rpc-url $ALCHEMY_URL_POLYGON'
+alias castsep='cast call --rpc-url $ALCHEMY_URL_SEPOLIA'
 
 workspace() {
     [ -n "$1" ] && [ -d ~/workspace/"$1" ] && cd ~/workspace/"$1" && return
@@ -28,3 +28,33 @@ _complete_invoke() {
     COMPREPLY=( $(compgen -W "${candidates}" -- $2) )
 }
 complete -F _complete_invoke -o default invoke inv
+
+win() {
+    # Find out boot entry with "efibootmgr"
+    sudo efibootmgr -n 0000
+    read -p "reboot (y): " reboot
+    [ "$reboot" = y ] && sudo reboot
+}
+
+
+pomodoro() {
+    # Start a timer and notify on completion. Runs on a detached subprocess.
+    # $1: time in minutes (default 35 minutes)
+    countdown=${1:-35}
+    sleeptime=$(( $countdown * 60 ))
+    (
+      (
+        notify-send \
+            --app-name=pomodoro \
+            --icon=alarm-symbolic \
+            "Starting timer for ${countdown}m" && \
+        sleep $sleeptime && \
+            notify-send \
+                --urgency=critical \
+                --app-name=pomodoro \
+                --icon=alarm-symbolic \
+                "${countdown}m timer complete"
+      ) & 
+    ) &
+    echo "Started timer for $countdown minutes."
+}

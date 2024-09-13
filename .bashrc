@@ -26,7 +26,7 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
-PROMPT_COMMAND='history -a;history -n'
+PROMPT_COMMAND='history -a'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -204,6 +204,9 @@ export PATH="$PATH:$HOME/.local/bin"
 # NPM packages
 export PATH="$PATH:$HOME/.npm_packages/bin"
 
+# OPT/BIN
+export PATH="$PATH:/opt/bin"
+
 # Command line fuzzy finder, to make life easier
 # https://github.com/junegunn/fzf#using-git
 # Probably want to `apt-get install highlight tree` as well
@@ -214,3 +217,24 @@ export FZF_COMPLETION_OPTS="$FZF_CTRL_T_OPTS --preview-window hidden --bind '?:t
 
 # poetry autocompletion
 [ -f ~/.poetry.bash ] && source ~/.poetry.bash
+
+export PGUSER=root
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/gabriel/.local/google-cloud-sdk/path.bash.inc' ]; then . '/home/gabriel/.local/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/gabriel/.local/google-cloud-sdk/completion.bash.inc' ]; then . '/home/gabriel/.local/google-cloud-sdk/completion.bash.inc'; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
+# Foundry binaries
+export PATH=$PATH:/home/gabriel/.local/foundry

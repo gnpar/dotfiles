@@ -1,13 +1,112 @@
 {
-    "workbench.colorTheme": "Default Dark+",
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "java.home": "/home/gabriel/.local/jdk-16.0.2+7",
+  "editor.formatOnSave": true,
+  "java.debug.settings.vmArgs": "-ea",
+  "git.confirmSync": false,
+  "window.openFoldersInNewWindow": "on",
+  "git.autofetch": true,
+  "mssql.connections": [
+    {
+      "server": "localhost",
+      "database": "TestDb",
+      "authenticationType": "SqlLogin",
+      "user": "SA",
+      "password": "",
+      "emptyPasswordInput": false,
+      "savePassword": true,
+      "profileName": "TestDb"
     },
-    "java.home": "/home/gabriel/.local/jdk-16.0.2+7",
-    "editor.formatOnSave": true,
+    {
+      "server": "localhost",
+      "database": "",
+      "authenticationType": "SqlLogin",
+      "user": "SA",
+      "password": "",
+      "emptyPasswordInput": false,
+      "savePassword": true,
+      "profileName": "LOCAL"
+    }
+  ],
+  "terminal.integrated.allowChords": false,
+  "terminal.integrated.commandsToSkipShell": ["-workbench.action.quickOpen", "-workbench.action.terminal.focusFind"],
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "python.formatting.provider": "black",
+  "python.terminal.launchArgs": ["-m", "IPython", "--no-autoindent"],
+  "hardhat.telemetry": false,
+  "terminal.integrated.shellIntegration.history": 1000,
+  "terminal.integrated.persistentSessionScrollback": 1000,
+  "terminal.integrated.scrollback": 10000,
+  "jupyter.askForKernelRestart": false,
+  "files.insertFinalNewline": true,
+  "html.format.endWithNewline": true,
+  "[solidity]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.watcherExclude": {
+    "**/venv/**": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "solidity.defaultCompiler": "localNodeModule",
+  "rewrap.wrappingColumn": 100,
+  "javascript.format.semicolons": "insert",
+  "js/ts.implicitProjectConfig.checkJs": true,
+  "window.titleBarStyle": "custom",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "redhat.telemetry.enabled": false,
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "outline.collapseItems": "alwaysCollapse",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnType": true
+  },
+  "python.formatting.blackPath": "/home/gabriel/.local/bin/black",
+  "solidity.telemetry": false,
+  "jupyter.interactiveWindow.creationMode": "perFile",
+  "jupyter.interactiveWindow.textEditor.executeSelection": true,
+  "workbench.startupEditor": "none",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "Default Dark+",
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "python": true,
+    "yaml": true,
+    "javascript": true,
+    "json": true
+  },
+  "files.associations": {
+    "*.env": "shellscript"
+  },
+  "prettier.printWidth": 120,
+  "prettier.configPath": "/home/gabriel/.local/pretierrrc.json",
+  "github.copilot.editor.enableAutoCompletions": true,
+  "python.createEnvironment.trigger": "off",
+  "docker.languageserver.formatter.ignoreMultilineInstructions": true,
+  "python.envFile": "",
+  "black-formatter.importStrategy": "fromEnvironment",
+  "python.languageServer": "Pylance"
 }

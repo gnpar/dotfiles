@@ -1,0 +1,34 @@
+# Desktop
+gnome
+gnome-tweaks
+keepass2
+pavucontrol
+
+# Multimedia
+transmission-gtk
+vlc
+gimp
+calibre
+blender
+audacity
+
+# Dev utils
+virtualbox
+git
+python-is-python3
+neovim
+silversearcher-ag
+sqlite3
+
+# CLI Magic utils
+vim-nox
+curl
+jq
+pandoc
+
+# System utils
+net-tools
+iftop
+htop
+nmap
+p7zip-full
