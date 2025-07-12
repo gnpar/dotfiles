@@ -13,12 +13,17 @@ blender
 audacity
 
 # Dev utils
-virtualbox
 git
-python-is-python3
 neovim
+openjdk-21-jdk
+pandoc 
+python-is-python3
 silversearcher-ag
 sqlite3
+texlive-fonts-recommended 
+texlive-latex-extra
+texlive-latex-recommended 
+virtualbox
 
 # CLI Magic utils
 vim-nox

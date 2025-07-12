@@ -11,6 +11,7 @@ alias pol='inv resolve -c polygon'
 alias sep='inv resolve -c sepolia'
 alias castpol='cast call --rpc-url $ALCHEMY_URL_POLYGON'
 alias castsep='cast call --rpc-url $ALCHEMY_URL_SEPOLIA'
+alias k='kubectl'
 
 workspace() {
     [ -n "$1" ] && [ -d ~/workspace/"$1" ] && cd ~/workspace/"$1" && return
@@ -31,7 +32,7 @@ complete -F _complete_invoke -o default invoke inv
 
 win() {
     # Find out boot entry with "efibootmgr"
-    sudo efibootmgr -n 0000
+    sudo efibootmgr -n 0001
     read -p "reboot (y): " reboot
     [ "$reboot" = y ] && sudo reboot
 }
@@ -57,4 +58,9 @@ pomodoro() {
       ) & 
     ) &
     echo "Started timer for $countdown minutes."
+}
+
+
+eth_rpc() {
+    curl -X POST -H 'Content-type: application/json' "$1" -d '{"jsonrpc": "2.0", "method": "eth_blockNumber", "params": [], "id": 1}'
 }

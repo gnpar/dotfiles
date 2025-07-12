@@ -7,7 +7,7 @@
     "**/.settings": true,
     "**/.factorypath": true
   },
-  "java.home": "/home/gabriel/.local/jdk-16.0.2+7",
+  "java.jdt.ls.java.home": "/usr/lib/jvm/java-21-openjdk-amd64",
   "editor.formatOnSave": true,
   "java.debug.settings.vmArgs": "-ea",
   "git.confirmSync": false,
@@ -22,7 +22,8 @@
       "password": "",
       "emptyPasswordInput": false,
       "savePassword": true,
-      "profileName": "TestDb"
+      "profileName": "TestDb",
+      "id": "1BB76B61-C0BC-4B81-B34B-EEBFAF169DF8"
     },
     {
       "server": "localhost",
@@ -32,7 +33,8 @@
       "password": "",
       "emptyPasswordInput": false,
       "savePassword": true,
-      "profileName": "LOCAL"
+      "profileName": "LOCAL",
+      "id": "C2B0C40D-FA75-4015-ADA2-9FACB88F8269"
     }
   ],
   "terminal.integrated.allowChords": false,
@@ -89,14 +91,16 @@
   "workbench.colorTheme": "Default Dark+",
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
-    "*": false,
+    "*": true,
     "plaintext": false,
     "markdown": false,
     "scminput": false,
     "python": true,
     "yaml": true,
     "javascript": true,
-    "json": true
+    "json": true,
+    "dockercompose": true,
+    "sql": true
   },
   "files.associations": {
     "*.env": "shellscript"
@@ -107,6 +111,43 @@
   "python.createEnvironment.trigger": "off",
   "docker.languageserver.formatter.ignoreMultilineInstructions": true,
   "python.envFile": "",
-  "black-formatter.importStrategy": "fromEnvironment",
-  "python.languageServer": "Pylance"
+  "python.languageServer": "Pylance",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "python.terminal.activateEnvironment": false,
+  "cSpell.languageSettings": [
+    // This one works with Python
+    {
+      "languageId": "python",
+      "includeRegExpList": ["/#.*/", "/('''|\"\"\")[^\\1]+?\\1/g", "strings"]
+    },
+    // This one works with JavaScript, Typescript, etc
+    {
+      "languageId": "javascript,typescript",
+      "includeRegExpList": ["CStyleComment", "strings"]
+    },
+    // Use with cpp or c files
+    {
+      "languageId": "cpp,c",
+      // Turn off compound words, because it is only checking strings.
+      "allowCompoundWords": false,
+      // Only check comments and strings
+      "includeRegExpList": ["CStyleComment", "string"],
+      // Exclude includes, because they are also strings.
+      "ignoreRegExpList": ["/#include.*/"]
+    }
+  ],
+  "cSpell.enabledFileTypes": {
+    "*": false
+  },
+  "docker.extension.enableComposeLanguageServer": false,
+  "mssql.connectionGroups": [
+    {
+      "name": "ROOT",
+      "id": "3C8653D5-AC68-45CE-9DD1-CFBF502689A3"
+    }
+  ],
+  "python.analysis.nodeExecutable": "/home/gabriel/.nvm/versions/node/v20.17.0/bin/node",
+  "window.restoreWindows": "none"
 }

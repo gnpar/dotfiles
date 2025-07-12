@@ -23,8 +23,11 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=-1
+HISTFILESIZE=-1  # unlimited
+
+# Store timestamps for history entries
+HISTTIMEFORMAT=%Y-%m-%dT%H:%M:%S
 
 PROMPT_COMMAND='history -a'
 
@@ -238,3 +241,12 @@ eval "$(pyenv init -)"
 
 # Foundry binaries
 export PATH=$PATH:/home/gabriel/.local/foundry
+
+# AWS
+export AWS_DEFAULT_PROFILE=ensuro-main
+
+# Kubectl config
+export KUBECTL_EXTERNAL_DIFF="diff -U1 --color=always"
+
+# Go binaries
+export PATH=$PATH:/home/gabriel/go/bin
