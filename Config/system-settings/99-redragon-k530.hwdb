@@ -1,0 +1,5 @@
+# SONiX Draconic K530 — ignore physical CapsLock (scancode 70039)
+# Useful for keeping it only for Fn.
+evdev:input:b0003v0C45p5004*
+ KEYBOARD_KEY_70039=reserved
+
