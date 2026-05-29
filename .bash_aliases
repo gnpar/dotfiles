@@ -8,9 +8,11 @@ alias hh="npx hardhat"
 alias _A='cast to-fixed-point 6'
 alias _W='cast to-fixed-point 18'
 alias pol='inv resolve -c polygon'
-alias sep='inv resolve -c sepolia'
+alias sep='inv resolve -c sepolia_v3'
+alias eth='inv resolve -c mainnet'
 alias castpol='cast call --rpc-url $ALCHEMY_URL_POLYGON'
 alias castsep='cast call --rpc-url $ALCHEMY_URL_SEPOLIA'
+alias casteth='cast call --rpc-url $ALCHEMY_URL_MAINNET'
 alias k='kubectl'
 
 workspace() {
