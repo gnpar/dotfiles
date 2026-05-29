@@ -3,6 +3,8 @@ gnome
 gnome-tweaks
 keepass2
 pavucontrol
+kitty
+powerline
 
 # Multimedia
 transmission-gtk

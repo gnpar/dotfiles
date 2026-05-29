@@ -250,3 +250,11 @@ export KUBECTL_EXTERNAL_DIFF="diff -U1 --color=always"
 
 # Go binaries
 export PATH=$PATH:/home/gabriel/go/bin
+. "$HOME/.cargo/env"
+
+
+# Powerline
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/share/powerline/bindings/bash/powerline.sh
