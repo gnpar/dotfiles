@@ -5,7 +5,7 @@
     "**/.classpath": true,
     "**/.project": true,
     "**/.settings": true,
-    "**/.factorypath": true
+    "**/.factorypath": true,
   },
   "java.jdt.ls.java.home": "/usr/lib/jvm/java-21-openjdk-amd64",
   "editor.formatOnSave": true,
@@ -23,7 +23,7 @@
       "emptyPasswordInput": false,
       "savePassword": true,
       "profileName": "TestDb",
-      "id": "1BB76B61-C0BC-4B81-B34B-EEBFAF169DF8"
+      "id": "1BB76B61-C0BC-4B81-B34B-EEBFAF169DF8",
     },
     {
       "server": "localhost",
@@ -34,8 +34,8 @@
       "emptyPasswordInput": false,
       "savePassword": true,
       "profileName": "LOCAL",
-      "id": "C2B0C40D-FA75-4015-ADA2-9FACB88F8269"
-    }
+      "id": "C2B0C40D-FA75-4015-ADA2-9FACB88F8269",
+    },
   ],
   "terminal.integrated.allowChords": false,
   "terminal.integrated.commandsToSkipShell": ["-workbench.action.quickOpen", "-workbench.action.terminal.focusFind"],
@@ -44,24 +44,22 @@
   "python.terminal.launchArgs": ["-m", "IPython", "--no-autoindent"],
   "hardhat.telemetry": false,
   "terminal.integrated.shellIntegration.history": 1000,
-  "terminal.integrated.persistentSessionScrollback": 1000,
-  "terminal.integrated.scrollback": 10000,
   "jupyter.askForKernelRestart": false,
   "files.insertFinalNewline": true,
   "html.format.endWithNewline": true,
   "[solidity]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.defaultFormatter": "JuanBlanco.solidity",
+    "editor.tabSize": 2,
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "files.watcherExclude": {
-    "**/venv/**": true
+    "**/venv/**": true,
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
   },
   "solidity.defaultCompiler": "localNodeModule",
   "rewrap.wrappingColumn": 100,
@@ -69,16 +67,16 @@
   "js/ts.implicitProjectConfig.checkJs": true,
   "window.titleBarStyle": "custom",
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "redhat.telemetry.enabled": false,
   "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "outline.collapseItems": "alwaysCollapse",
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
-    "editor.formatOnType": true
+    "editor.formatOnType": true,
   },
   "python.formatting.blackPath": "/home/gabriel/.local/bin/black",
   "solidity.telemetry": false,
@@ -86,9 +84,8 @@
   "jupyter.interactiveWindow.textEditor.executeSelection": true,
   "workbench.startupEditor": "none",
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
-  "workbench.colorTheme": "Default Dark+",
   "editor.inlineSuggest.enabled": true,
   "github.copilot.enable": {
     "*": true,
@@ -100,10 +97,10 @@
     "javascript": true,
     "json": true,
     "dockercompose": true,
-    "sql": true
+    "sql": true,
   },
   "files.associations": {
-    "*.env": "shellscript"
+    "*.env": "shellscript",
   },
   "prettier.printWidth": 120,
   "prettier.configPath": "/home/gabriel/.local/pretierrrc.json",
@@ -113,19 +110,19 @@
   "python.envFile": "",
   "python.languageServer": "Pylance",
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "python.terminal.activateEnvironment": false,
   "cSpell.languageSettings": [
     // This one works with Python
     {
       "languageId": "python",
-      "includeRegExpList": ["/#.*/", "/('''|\"\"\")[^\\1]+?\\1/g", "strings"]
+      "includeRegExpList": ["/#.*/", "/('''|\"\"\")[^\\1]+?\\1/g", "strings"],
     },
     // This one works with JavaScript, Typescript, etc
     {
       "languageId": "javascript,typescript",
-      "includeRegExpList": ["CStyleComment", "strings"]
+      "includeRegExpList": ["CStyleComment", "strings"],
     },
     // Use with cpp or c files
     {
@@ -135,19 +132,44 @@
       // Only check comments and strings
       "includeRegExpList": ["CStyleComment", "string"],
       // Exclude includes, because they are also strings.
-      "ignoreRegExpList": ["/#include.*/"]
-    }
+      "ignoreRegExpList": ["/#include.*/"],
+    },
   ],
   "cSpell.enabledFileTypes": {
-    "*": false
+    "*": false,
   },
   "docker.extension.enableComposeLanguageServer": false,
   "mssql.connectionGroups": [
     {
       "name": "ROOT",
-      "id": "3C8653D5-AC68-45CE-9DD1-CFBF502689A3"
-    }
+      "id": "3C8653D5-AC68-45CE-9DD1-CFBF502689A3",
+    },
   ],
   "python.analysis.nodeExecutable": "/home/gabriel/.nvm/versions/node/v20.17.0/bin/node",
-  "window.restoreWindows": "none"
+  "window.restoreWindows": "none",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "[dockercompose]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true,
+    },
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+  },
+  "terminal.integrated.suggest.enabled": false,
+  "pgFormatter.spaces": 4,
+  "github.copilot.chat.agent.currentEditorContext.enabled": false,
+  "github.copilot.chat.backgroundAgent.enabled": false,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "terminal.integrated.gpuAcceleration": "off",
+  "terminal.integrated.stickyScroll.maxLineCount": 1,
+  "[sql]": {},
+  "pgFormatter.keepNewline": true,
+  "pgFormatter.noGrouping": true,
 }
