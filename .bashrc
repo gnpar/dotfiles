@@ -234,9 +234,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if which venv; then
+ export PYENV_ROOT="$HOME/.pyenv"
+ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+ eval "$(pyenv init -)"
+fi
 
 
 # Foundry binaries
@@ -250,7 +252,7 @@ export KUBECTL_EXTERNAL_DIFF="diff -U1 --color=always"
 
 # Go binaries
 export PATH=$PATH:/home/gabriel/go/bin
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 
 # Powerline
