@@ -38,3 +38,11 @@ iftop
 htop
 nmap
 p7zip-full
+mesa-utils
+
+
+# Virtualization and containers
+virt-manager
+podman
+podman-docker
+podman-compose
