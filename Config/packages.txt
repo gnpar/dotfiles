@@ -25,7 +25,6 @@ sqlite3
 texlive-fonts-recommended 
 texlive-latex-extra
 texlive-latex-recommended 
-virtualbox
 
 # CLI Magic utils
 vim-nox
