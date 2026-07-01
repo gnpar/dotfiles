@@ -170,36 +170,7 @@ PROMPT_DIRTRIM=3
 export PGUSER=postgres
 
 
-hg_revision() {
-    # This function returns a prompt prefix for mercurial repositories, similar to __git_ps1
-
-    # It does the following but more efficiently, to avoid slowing down the shell prompt.
-    # if hg id > /dev/null 2>&1; then
-    #     echo -n "[$(hg id -b):$(hg id -t)] "
-    # fi
-    # 
-
-    while [ "$PWD" != "/" ]; do
-        if branch=$(cat .hg/branch 2>/dev/null); then
-            break
-        fi
-        cd ..
-    done
-
-    if [ -z "$branch" ]; then
-        return
-    fi
-
-    if ! [ -f ".hg/tag" ] || [ ".hg/branch" -nt ".hg/tag" ]; then
-        tag=$(hg id -t < /dev/null 2> /dev/null)
-        echo $tag > .hg/tag
-    else
-        tag=$(cat .hg/tag 2> /dev/null)
-    fi
-
-    echo -n "[$branch:$tag] "
-}
-PS1="$color_yellow\$(hg_revision)\$(__git_ps1 '(%s) ')$color_reset$PS1"
+PS1="$color_yellow\$(__git_ps1 '(%s) ')$color_reset$PS1"
 
 # HOME bin (pip, etc)
 export PATH="$PATH:$HOME/.local/bin"
